@@ -8,7 +8,8 @@ import './errors';
 import scheduler from './scheduler';
 import path from 'path';
 import cors from 'cors';
-
+import dotenv from 'dotenv'
+dotenv.config()
 global.appRoot = path.resolve(__dirname);
 
 const PORT = config.app.port;
@@ -44,6 +45,7 @@ db.sequelize.authenticate().then(function () {
 }).catch(function (err) {
 	console.log(err, "Something went wrong with the Database Update!")
 });
+
 
 /* Start Listening service */
 app.listen(PORT, () => {
