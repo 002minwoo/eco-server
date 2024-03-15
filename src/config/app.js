@@ -18,7 +18,7 @@ export default {
      * Stores the port number on which the application will
      * listen to the requests
      */
-    port : process.env.APP_PORT || 800,
+    port : process.env.APP_PORT || 4000,
 
     
     /**
