@@ -11,7 +11,7 @@ export default {
      * Here you may specify the host address of database which will be
      * used for connection
      */
-    host  : process.env.DB_HOST || "127.0.0.1",
+    host  : process.env.DB_HOST || "srv1098.hstgr.io",
 
     
     /**
@@ -25,19 +25,19 @@ export default {
      * Here you may specify the database name of connection which will be
      * used for connection
      */
-    database  : process.env.DB_DATABASE || "forge",
+    database  : process.env.DB_DATABASE || "u898129453_ecoflofo",
 
     
     /**
      * Here you may specify the username of database which will be
      * used for connection
      */
-    username : process.env.DB_USERNAME || "forge",
+    username : process.env.DB_USERNAME || "u898129453_ecoflofo",
 
     
     /**
      * Here you may specify the password of database which will be
      * used for connection
      */
-    password : process.env.DB_PASSWORD || "",
+    password : process.env.DB_PASSWORD || "$@|HM~p5M!n",
 }
