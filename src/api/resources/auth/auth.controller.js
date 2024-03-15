@@ -15,7 +15,7 @@ var JWTSign = function (user, date) {
         iam : user.type,
         iat: date.getTime(),
         exp: new Date().setMinutes(date.getMinutes() + 30)
-    }, process.env.JWT_SECRET);
+    }, process.env.JWT_SECRET || "123456");
 }
 
 function generateRandomString(length) {
