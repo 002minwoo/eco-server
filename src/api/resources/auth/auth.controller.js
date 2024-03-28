@@ -166,10 +166,10 @@ export default {
         // console.log(password)
         // console.log(bcrypt.hashSync(password))
         const findUser= await db.user.findOne({where: {phone: email, password: md5(password)}})
-        if(findUser.verify === null) {
+        if(findUser?.verify === null) {
             return res.status(200).json({ success: false });
         }
-        else if(findUser.verify) {
+        else if(findUser?.verify) {
             if(findUser?.device1?.length <= 0 && findUser?.device2?.length > 0) {
                 const device1Code= generateRandomString(10)
                 await db.user.update({device1: device1Code}, {where: {phone: email, password: md5(password)}})
