@@ -72,15 +72,21 @@ export default {
         }
     },
 
-    async getListTour(req, res) {
+    async getListBlog(req, res) {
         const blogList = await db.blog.findAll({
             order: [['createdAt', 'DESC']],
+            attributes: {
+                exclude: ['content']
+            }
         })
         return res.status(200).json({ ok: true, data: blogList })
     },
-    async getListSuggestTour(req, res) {
+    async getListSuggestBlog(req, res) {
         const blogList= await db.blog.findAll({
-            limit: 4
+            limit: 4,
+            attributes: {
+                exclude: ['content']
+            }
         })
         return res.status(200).json({ success: true, data: blogList });
     },
@@ -89,6 +95,9 @@ export default {
             const blogList= await db.blog.findAll({
                 where: {
                     type: req.query.type
+                },
+                attributes: {
+                    exclude: ['content']
                 }
             })
             return res.status(200).json({ok: true, data: blogList})
@@ -98,7 +107,7 @@ export default {
             return res.status(500).json({ok: false})
         }
     },
-    async getTourDetail(req, res) {
+    async getBlogDetail(req, res) {
         try {
             const blogList= await db.blog.findAll({
                 where: {
@@ -113,7 +122,7 @@ export default {
         }
     }
     ,
-    async deleteTour(req, res) {
+    async deleteBlog(req, res) {
         const { id } = req.body
         db.blog.destroy({
             where: {
