@@ -75,9 +75,7 @@ export default {
     async getListBlog(req, res) {
         const blogList = await db.blog.findAll({
             order: [['createdAt', 'DESC']],
-            attributes: {
-                exclude: ['content']
-            }
+            
         })
         return res.status(200).json({ ok: true, data: blogList })
     },
